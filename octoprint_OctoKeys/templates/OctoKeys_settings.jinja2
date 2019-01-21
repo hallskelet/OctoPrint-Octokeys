@@ -1,0 +1,99 @@
+<form class="form-horizontal">
+	<h3>{{ _('Communication Settings') }}</h3>
+    <div class="control-group" title="{{ _('Serial port to connect to, setting this to AUTO will make OctoPrint try to automatically find the right setting') }}">
+		<label class="control-label" for="settings-octokeys-serialPort">{{ _('Serial Port') }}</label>
+		<div class="controls">
+			<select id="settings-OctoKeys-serialPort" data-bind="options: serial_portOptions, value: settings.plugins.OctoKeys.comport"></select>
+		</div>
+	</div>
+    <div class="control-group" title="{{ _('Serial baud rate to connect with, setting this to AUTO will make OctoPrint try to automatically find the right setting') }}">
+        <label class="control-label" for="settings-octokeys-baudrate">{{ _('Baudrate') }}</label>
+        <div class="controls">
+            <select id="settings-octokeys-baudrate" data-bind="options: settings.plugins.OctoKeys.baudrateOpt, value: settings.plugins.OctoKeys.baudrate"></select>
+        </div>
+    </div>
+	
+	<h3>{{ _('User Buttons') }}</h3>
+	<div class="control-group" title="{{_('Команды для настраиваемых кнопок') }}">
+			<div>
+				<label class="control-label" for="settings-octokeys-user">{{ _('User Button 1') }}</label>
+				<div class="controls">
+					<select style="width: 20%" id="settings-octokeys-user1mode" data-bind="options: settings.plugins.OctoKeys.userKeyModeOptions, value: settings.plugins.OctoKeys.userKeyMode1"></select>
+					<div class="input-append">		
+					<input style="width: 200%" id="settings-octokeys-user1value" type="text" class="input text-right" data-bind="value: settings.plugins.OctoKeys.userCommand1">
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<label class="control-label" for="settings-octokeys-user">{{ _('User Button 2') }}</label>
+				<div class="controls">
+					<select style="width: 20%" id="settings-octokeys-user2mode" data-bind="options: settings.plugins.OctoKeys.userKeyModeOptions, value: settings.plugins.OctoKeys.userKeyMode2"></select>
+					<div class="input-append">		
+					<input style="width: 200%" id="settings-octokeys-user2value" type="text" class="input text-right" data-bind="value: settings.plugins.OctoKeys.userCommand2">
+					</div>
+				</div>
+			</div>
+			
+			<div>
+				<label class="control-label" for="settings-octokeys-user">{{ _('User Button 3') }}</label>
+				<div class="controls">
+					<select style="width: 20%" id="settings-octokeys-user3mode" data-bind="options: settings.plugins.OctoKeys.userKeyModeOptions, value: settings.plugins.OctoKeys.userKeyMode3"></select>
+					<div class="input-append">		
+					<input style="width: 200%" id="settings-octokeys-user3value" type="text" class="input text-right" data-bind="value: settings.plugins.OctoKeys.userCommand3">
+					</div>
+				</div>
+			</div>
+		
+			<div>
+				<label class="control-label" for="settings-octokeys-user">{{ _('User Button 4') }}</label>
+				<div class="controls">
+					<select style="width: 20%" id="settings-octokeys-user4mode" data-bind="options: settings.plugins.OctoKeys.userKeyModeOptions, value: settings.plugins.OctoKeys.userKeyMode4"></select>
+					<div class="input-append">		
+					<input style="width: 200%" id="settings-octokeys-user4value" type="text" class="input text-right" data-bind="value: settings.plugins.OctoKeys.userCommand4">
+					</div>
+				</div>
+			</div>
+			
+			<div>
+				<label class="control-label" for="settings-octokeys-user">{{ _('User Button 5') }}</label>
+				<div class="controls">
+					<select style="width: 20%" id="settings-octokeys-user5mode" data-bind="options: settings.plugins.OctoKeys.userKeyModeOptions, value: settings.plugins.OctoKeys.userKeyMode5"></select>
+					<div class="input-append">		
+					<input style="width: 200%" id="settings-octokeys-user5value" type="text" class="input text-right" data-bind="value: settings.plugins.OctoKeys.userCommand5">
+					</div>
+				</div>
+			</div>
+			
+			<div>
+				<label class="control-label" for="settings-octokeys-user">{{ _('User Button 6') }}</label>
+				<div class="controls">
+					<select style="width: 20%" id="settings-octokeys-user5mode" data-bind="options: settings.plugins.OctoKeys.userKeyModeOptions, value: settings.plugins.OctoKeys.userKeyMode6"></select>
+					<div class="input-append">		
+					<input style="width: 200%" id="settings-octokeys-user6value" type="text" class="input text-right" data-bind="value: settings.plugins.OctoKeys.userCommand6">
+					</div>
+				</div>
+			</div>
+		</div>
+    
+	<h3>Key`s Help</h3>
+		<table align="center" border="1">
+			<tr>
+				<td colspan="2" align="center">Расположение кнопок на клавиатуре</td>
+			</tr>
+			<tr>
+				<td align="center">Start/Pause</td><td align="center">Stop</td>
+			</tr>
+			<tr>
+				<td>Настраиваемая кнопка 1</td><td>Настраиваемая кнопка 2</td>
+			</tr>
+			<tr>
+				<td>Настраиваемая кнопка 3</td><td>Настраиваемая кнопка 4</td>
+			</tr>
+			<tr>
+				<td>Настраиваемая кнопка 5</td><td>Настраиваемая кнопка 6</td>
+			</tr>
+		</table>
+		<br>
+		<p> При выборе значения "Action" необходимо задать № пина для управления. Номер задаётся по номерам GPIO в описании платы. Например 7 = GPIO7 = PIN26 на плате.</p>
+</form>
