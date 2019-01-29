@@ -11,7 +11,7 @@ plugin_package = "octoprint_OctoKeys"
 
 # The plugin's human readable name. Can be overwritten within OctoPrint's internal data via __plugin_name__ in the
 # plugin module
-plugin_name = "OctoPrint-Octokeys"
+plugin_name = "OctoPrint-OctoKeys"
 
 # The plugin's version. Can be overwritten within OctoPrint's internal data via __plugin_version__ in the plugin module
 plugin_version = "0.0.1"
@@ -27,10 +27,10 @@ plugin_author = "Skelet"
 plugin_author_email = "umart.skelet@gmail.com"
 
 # The plugin's homepage URL. Can be overwritten within OctoPrint's internal data via __plugin_url__ in the plugin module
-plugin_url = "https://github.com/pkElectronics/OctoPrint-Octokeys"
+plugin_url = "https://github.com/hallskelet/OctoPrint-Octokeys"
 
 # The plugin's license. Can be overwritten within OctoPrint's internal data via __plugin_license__ in the plugin module
-plugin_license = "AGPLv3"
+plugin_license = "GPLv3"
 
 # Any additional requirements besides OctoPrint should be listed here
 plugin_requires = []
