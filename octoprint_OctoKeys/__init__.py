@@ -95,20 +95,22 @@ class OctokeysPlugin(octoprint.plugin.SettingsPlugin,
 				displayVersion=self._plugin_version,
 
 				# version check: github repository
-				# Здесь должна быть ссылка на репозиторий с для обновления плагина сейчас все ссылки не корректны
+				# Здесь должна быть ссылка на репозиторий с для обновления плагина
 				type="github_release",
-				user="pkElectronics",
+				user="hallskelet",
 				repo="OctoPrint-Octokeys",
 				current=self._plugin_version,
 
 				# update method: pip
-				pip="https://github.com/pkElectronics/OctoPrint-Octoremote/archive/{target_version}.zip"
+				pip="https://github.com/hallskelet/OctoPrint-Octokeys/archive/{target_version}.zip"
 			)
 		)
 
 	def on_after_startup(self):
 		self.start_com_thread()
+		# Задаём нумирацию пинов по имени GPIO
 		GPIO.setmode(GPIO.BCM)
+		self.cbClass.getLogger().info("GPIO init")
 
 	def start_com_thread(self):
 		conf = self.get_config_vars()
@@ -142,7 +144,7 @@ class OctokeysPlugin(octoprint.plugin.SettingsPlugin,
 # ("OctoPrint-PluginSkeleton"), you may define that here. Same goes for the other metadata derived from setup.py that
 # can be overwritten via __plugin_xyz__ control properties. See the documentation for that.
 __plugin_name__ = "OctoKeys Plugin"
-
+__plugin_version__ = "0.0"
 
 def __plugin_load__():
 	global __plugin_implementation__
@@ -412,10 +414,10 @@ class SerialThread(Thread):
 		self.cbClass._logger.info(self.userKeyModes[ubid])
 		if self.userCommands[ubid] != "":
 			if self.userKeyModes[ubid] == "GCODE":
-				self.getPrinterObject().commands(self.userCommands[ubid])
+				 self.getPrinterObject().commands(self.userCommands[ubid])
 			elif self.userKeyModes[ubid] == "SCRIPT":
-				self.getPrinterObject().script(self.userCommands[ubid])
+				 self.getPrinterObject().script(self.userCommands[ubid])
 			elif self.userKeyModes[ubid] == "ACTION":
-				GPIO.setup(int(self.userCommands[ubid]), GPIO.OUT)
-				GPIO.output(int(self.userCommands[ubid]), not GPIO.input(int(self.userCommands[ubid])))
-				# По идее этот код должен повторно настроить пин на выход и инвертировать его стостояние
+				 GPIO.setup(int(self.userCommands[ubid]), GPIO.OUT)
+				 GPIO.output(int(self.userCommands[ubid]), not GPIO.input(int(self.userCommands[ubid])))
+				 # По идее этот код должен повторно настроить пин на выход и инвертировать его стостояние
